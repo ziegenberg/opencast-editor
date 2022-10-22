@@ -261,6 +261,7 @@ export function selectFieldStyle(theme: Theme) {
     valueContainer: (provided: any) => ({
       ...provided,
       cursor: "text",
+      color: theme.text,
     }),
   }
 }
