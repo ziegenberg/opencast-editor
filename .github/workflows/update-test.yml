@@ -7,6 +7,13 @@ on:
       - synchronize
 
 jobs:
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: member
+    steps:
+      - run: echo ${{needs.member.outputs.is_team_member}}
+
   main:
     if: needs.member.outputs.is_team_member == true
     needs: member
@@ -116,6 +123,7 @@ jobs:
         uses: TheModdingInquisition/actions-team-membership@v1.0
         with:
           team: developers # required. The team to check for
+          organization: opencast
           token: ${{ secrets.ORGANIZATION_MEMBER_SECRET }} # required. Personal Access Token with the `read:org` permission
 
 
