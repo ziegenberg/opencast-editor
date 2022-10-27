@@ -15,7 +15,7 @@ jobs:
       - run: echo ${{needs.member.outputs.is_team_member}}
 
   main:
-    if: needs.member.outputs.is_team_member == true
+    if: needs.member.outputs.is_team_member == "true"
     needs: member
     runs-on: ubuntu-latest
     
