@@ -23,7 +23,8 @@ jobs:
         path: editor-test
     
     - name: remove old builds
-      run: rm -rf "$GITHUB_WORKSPACE/editor-test/${{ github.event.number }}"
+      working-directory: $GITHUB_WORKSPACE/editor-test
+      run: rm -rf "${{ github.event.number }}"
 
     - name: regenerate index.html
       working-directory: $GITHUB_WORKSPACE/editor-test
