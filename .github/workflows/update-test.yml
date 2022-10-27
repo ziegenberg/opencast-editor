@@ -8,12 +8,6 @@ on:
 
 jobs:
 
-  job2:
-    runs-on: ubuntu-latest
-    needs: member
-    steps:
-      - run: echo ${{needs.member.outputs.is_team_member}}
-
   main:
     if: needs.member.outputs.is_team_member == 'true'
     needs: member
